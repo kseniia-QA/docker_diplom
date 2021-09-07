@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TripPurchaseTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-09-07T11:38:31" hostname="DESKTOP-H6MRP86" time="12.247">
+<testsuite name="TripPurchaseTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2021-09-07T14:47:11" hostname="DESKTOP-H6MRP86" time="13.76">
   <properties/>
-  <testcase name="shouldSubmitRequest()" classname="TripPurchaseTest" time="12.247">
-    <failure message="org.openqa.selenium.WebDriverException: unknown error: net::ERR_CONNECTION_REFUSED&#10;  (Session info: chrome=92.0.4515.159)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-H6MRP86', ip: '192.168.1.40', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.10'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;selenide.url: http://localhost:8080&#10;Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 92.0.4515.159, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: C:\Users\9E0A~1\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:59433}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;selenide.baseUrl: http://localhost:8080&#10;Session ID: 1614b7f543313288a580cf85fe3750ae" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: unknown error: net::ERR_CONNECTION_REFUSED
+  <testcase name="shouldSubmitRequest()" classname="TripPurchaseTest" time="13.76">
+    <failure message="org.openqa.selenium.WebDriverException: unknown error: cannot determine loading status&#10;from disconnected: received Inspector.detached event&#10;  (Session info: chrome=92.0.4515.159)&#10;Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'&#10;System info: host: 'DESKTOP-H6MRP86', ip: '192.168.1.40', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.10'&#10;Driver info: org.openqa.selenium.chrome.ChromeDriver&#10;selenide.url: http://localhost:8080&#10;Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 92.0.4515.159, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: C:\Users\9E0A~1\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:55682}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}&#10;selenide.baseUrl: http://localhost:8080&#10;Session ID: 4d943263a9d790fd409164b385c137b8" type="org.openqa.selenium.WebDriverException">org.openqa.selenium.WebDriverException: unknown error: cannot determine loading status
+from disconnected: received Inspector.detached event
   (Session info: chrome=92.0.4515.159)
 Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
 System info: host: 'DESKTOP-H6MRP86', ip: '192.168.1.40', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.10'
 Driver info: org.openqa.selenium.chrome.ChromeDriver
 selenide.url: http://localhost:8080
-Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 92.0.4515.159, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: C:\Users\9E0A~1\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:59433}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Capabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 92.0.4515.159, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: C:\Users\9E0A~1\AppData\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:55682}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
 selenide.baseUrl: http://localhost:8080
-Session ID: 1614b7f543313288a580cf85fe3750ae
+Session ID: 4d943263a9d790fd409164b385c137b8
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
@@ -125,11 +126,11 @@ Session ID: 1614b7f543313288a580cf85fe3750ae
 </failure>
   </testcase>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 92.0.4515.107 (87a818b10553a07434ea9e2b6dccf3cbe7895134-refs/branch-heads/4515@{#1634}) on port 23801
+  <system-err><![CDATA[Starting ChromeDriver 92.0.4515.107 (87a818b10553a07434ea9e2b6dccf3cbe7895134-refs/branch-heads/4515@{#1634}) on port 8438
 Only local connections are allowed.
 Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
 ChromeDriver was started successfully.
-сент. 07, 2021 2:38:34 PM org.openqa.selenium.remote.ProtocolHandshake createSession
+сент. 07, 2021 5:47:16 PM org.openqa.selenium.remote.ProtocolHandshake createSession
 INFO: Detected dialect: W3C
 ]]></system-err>
 </testsuite>
