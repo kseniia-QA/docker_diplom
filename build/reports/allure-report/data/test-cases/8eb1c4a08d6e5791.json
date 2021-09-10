@@ -1,0 +1,55 @@
+{
+  "uid" : "8eb1c4a08d6e5791",
+  "name" : "shouldSubmitRequestToBuy()",
+  "fullName" : "TripPurchaseTest.shouldSubmitRequestToBuy",
+  "historyId" : "b66239e345e2b4ef6af9deaab5d277b0",
+  "time" : {
+    "start" : 1631289631585,
+    "stop" : 1631289645992,
+    "duration" : 14407
+  },
+  "description" : "",
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "host",
+    "value" : "DESKTOP-H6MRP86"
+  }, {
+    "name" : "thread",
+    "value" : "11784@DESKTOP-H6MRP86.Test worker(13)"
+  }, {
+    "name" : "framework",
+    "value" : "junit-platform"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "package",
+    "value" : "TripPurchaseTest"
+  }, {
+    "name" : "testClass",
+    "value" : "TripPurchaseTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "shouldSubmitRequestToBuy"
+  }, {
+    "name" : "suite",
+    "value" : "TripPurchaseTest"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "8eb1c4a08d6e5791.json",
+  "parameterValues" : [ ]
+}

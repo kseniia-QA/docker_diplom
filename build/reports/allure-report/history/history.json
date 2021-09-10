@@ -1,0 +1,254 @@
+{
+  "a2c1744a234168511068f26fe63752fd" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "f11dde10a58414f8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631289646952,
+        "stop" : 1631289647890,
+        "duration" : 938
+      }
+    } ]
+  },
+  "c1b887890cdad308204dad097109eda1" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "35f94d5535438ec7",
+      "status" : "failed",
+      "statusDetails" : "Element should have text 'Поле обязательно для заполнения' {[method=post]/[class=input__sub][0]}\r\nElement: '<span class=\"input__sub\">Неверный формат</span>'\r\nScreenshot: file:/C:/Diplom/build/reports/tests/1631292344631.1.png\r\nPage source: file:/C:/Diplom/build/reports/tests/1631292344631.1.html\r\nTimeout: 4 s.",
+      "time" : {
+        "start" : 1631292340303,
+        "stop" : 1631292344777,
+        "duration" : 4474
+      }
+    } ]
+  },
+  "f1eca14d81270c3e22a0791d008d2029" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "82093b2e2a056b0b",
+      "status" : "failed",
+      "statusDetails" : "Element should have exact text 'Ошибка' {[class=notification__title]}\r\nElement: '<div class=\"notification__title\">Успешно</div>'\r\nScreenshot: file:/C:/Diplom/build/reports/tests/1631292364527.3.png\r\nPage source: file:/C:/Diplom/build/reports/tests/1631292364527.3.html\r\nTimeout: 4 s.",
+      "time" : {
+        "start" : 1631292350516,
+        "stop" : 1631292364648,
+        "duration" : 14132
+      }
+    } ]
+  },
+  "401d29c7496ddbf723ae246350fd3fc6" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "7dd216c77f93beee",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631288990283,
+        "stop" : 1631288996508,
+        "duration" : 6225
+      }
+    } ]
+  },
+  "d6c79d2c98f605aa222cb51a8f75cca9" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "7e1c58769a213fae",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631292335839,
+        "stop" : 1631292340303,
+        "duration" : 4464
+      }
+    } ]
+  },
+  "924a4890d4373865ee3df9210d31df85" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "39fa610ee857531d",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631289647896,
+        "stop" : 1631289648808,
+        "duration" : 912
+      }
+    } ]
+  },
+  "b5c76a39eadcfa660967bfdb7c7b9b34" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "999217759061051",
+      "status" : "failed",
+      "statusDetails" : "Element should have text 'Поле обязательно для заполнения' {[method=post]/[class=input__sub][0]}\r\nElement: '<span class=\"input__sub\">Неверный формат</span>'\r\nScreenshot: file:/C:/Diplom/build/reports/tests/1631292350374.2.png\r\nPage source: file:/C:/Diplom/build/reports/tests/1631292350374.2.html\r\nTimeout: 4 s.",
+      "time" : {
+        "start" : 1631292346011,
+        "stop" : 1631292350516,
+        "duration" : 4505
+      }
+    } ]
+  },
+  "fcf598fe0e4c0b856966cc19eba172d4" : {
+    "statistic" : {
+      "failed" : 1,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "2769343b37cf63aa",
+      "status" : "failed",
+      "statusDetails" : "Element should have exact text 'Ошибка' {[class=notification__title]}\r\nElement: '<div class=\"notification__title\">Успешно</div>'\r\nScreenshot: file:/C:/Diplom/build/reports/tests/1631292320312.0.png\r\nPage source: file:/C:/Diplom/build/reports/tests/1631292320312.0.html\r\nTimeout: 4 s.",
+      "time" : {
+        "start" : 1631292305501,
+        "stop" : 1631292320500,
+        "duration" : 14999
+      }
+    } ]
+  },
+  "b33812e50ad5610e70de77c050a907e2" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e48bed640ed4ed03",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631292344793,
+        "stop" : 1631292346006,
+        "duration" : 1213
+      }
+    } ]
+  },
+  "ea14c84cdc550ad39175d46ea953c7c1" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "37ff961d3b80e3ec",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631292320771,
+        "stop" : 1631292322625,
+        "duration" : 1854
+      }
+    } ]
+  },
+  "b66239e345e2b4ef6af9deaab5d277b0" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "c2177e8c8519ff02",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631292322644,
+        "stop" : 1631292335832,
+        "duration" : 13188
+      }
+    } ]
+  },
+  "b976e3093201f0eb3075fda485daadff" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 0,
+      "skipped" : 0,
+      "passed" : 1,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "e57a4e102d122b11",
+      "status" : "passed",
+      "time" : {
+        "start" : 1631289646211,
+        "stop" : 1631289646928,
+        "duration" : 717
+      }
+    } ]
+  },
+  "ac5020cfd3295c1ccf09820623caf819" : {
+    "statistic" : {
+      "failed" : 0,
+      "broken" : 1,
+      "skipped" : 0,
+      "passed" : 0,
+      "unknown" : 0,
+      "total" : 1
+    },
+    "items" : [ {
+      "uid" : "1b5185ef44081423",
+      "status" : "broken",
+      "statusDetails" : "unknown error: net::ERR_CONNECTION_REFUSED\n  (Session info: chrome=92.0.4515.159)\nBuild info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'\nSystem info: host: 'DESKTOP-H6MRP86', ip: '192.168.1.40', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.10'\nDriver info: org.openqa.selenium.chrome.ChromeDriver\nselenide.url: http://localhost:8080\nCapabilities {acceptInsecureCerts: true, browserName: chrome, browserVersion: 92.0.4515.159, chrome: {chromedriverVersion: 92.0.4515.107 (87a818b10553..., userDataDir: C:\\Users\\9E0A~1\\AppData\\Loc...}, goog:chromeOptions: {debuggerAddress: localhost:64815}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}\nselenide.baseUrl: http://localhost:8080\nSession ID: 9ce98354d094f3965a0fd079b90f0cc0",
+      "time" : {
+        "start" : 1631026459392,
+        "stop" : 1631026471368,
+        "duration" : 11976
+      }
+    } ]
+  }
+}
