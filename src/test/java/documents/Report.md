@@ -5,4 +5,4 @@
   работе и заведены в Issues.
   
 
-![img.png](img.png)
+![img.png](../../../../img.png)
