@@ -1,8 +1,0 @@
-ru/netology/travel/FillForm.java
- ru.netology.travel.FillForm
-ru/netology/travel/SqlGetters.java
- ru.netology.travel.SqlGetters
-ru/netology/travel/TripPurchaseTest.java
- ru.netology.travel.TripPurchaseTest
-ru/netology/travel/PurchaseType.java
- ru.netology.travel.PurchaseType
