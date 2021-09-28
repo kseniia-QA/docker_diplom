@@ -18,6 +18,11 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TripPurchaseTest {
 
+
+    private String database = "postgresql";
+
+    SqlGetters sqlGetters = new SqlGetters();
+
     @BeforeAll
     static void setUpAll() {
         SelenideLogger.addListener("allure", new AllureSelenide());
@@ -40,18 +45,10 @@ public class TripPurchaseTest {
         SelenideElement form = $("[method=post]");
         PurchaseType e = new PurchaseType();
         e.buy();
+
         FillForm card = new FillForm();
-        card.fillCard();
-        FillForm month = new FillForm();
-        month.fillMonth();
-        FillForm date = new FillForm();
-        date.fillDate();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillCorrectForm ();
+
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
         $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
 
@@ -63,17 +60,7 @@ public class TripPurchaseTest {
         PurchaseType e = new PurchaseType();
         e.buy();
         FillForm card = new FillForm();
-        card.fillWrongCard();
-        FillForm month = new FillForm();
-        month.fillMonth();
-        FillForm date = new FillForm();
-        date.fillDate();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillIncorrectCard ();
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
     }
 
@@ -83,66 +70,26 @@ public class TripPurchaseTest {
         PurchaseType e = new PurchaseType();
         e.buy();
         FillForm card = new FillForm();
-        card.fillCard();
-        FillForm date = new FillForm();
-        date.fillWrongDate();
-        FillForm month = new FillForm();
-        month.fillWrongMonth();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillIncorrectData ();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
         form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
 
     }
 
+
     @Test
-    public void shouldNotSubmitZeroMonth() {
+    public void shouldNotSubmitIncorrectData() {
         SelenideElement form = $("[method=post]");
         PurchaseType e = new PurchaseType();
         e.buy();
         FillForm card = new FillForm();
-        card.fillCard();
-        FillForm date = new FillForm();
-        date.fillWrongDate();
-        $("[class=input__box] [placeholder='08']").setValue("00");
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
-        $("[class=notification__title]").shouldNotBe(visible);
-
-
-    }
-
-    @Test
-    public void shouldNotSubmitNameIncorrect() {
-        SelenideElement form = $("[method=post]");
-
-        PurchaseType e = new PurchaseType();
-        e.buy();
-        FillForm card = new FillForm();
-        card.fillCard();
-        FillForm date = new FillForm();
-        date.fillWrongDate();
-        FillForm month = new FillForm();
-        month.fillMonth();
-        $$("[class=input__control]").get(3).setValue("G2#$5");
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillIncorrectData();
         $("[class=notification__title]").shouldNotBe(visible);
 
     }
 
 
-        @Test
+    @Test
     public void shouldNotSubmitRequestToBuyNoFields() {
         SelenideElement form = $("[method=post]");
         PurchaseType e = new PurchaseType();
@@ -166,41 +113,14 @@ public class TripPurchaseTest {
         PurchaseType d = new PurchaseType();
         d.creditBuy();
         FillForm card = new FillForm();
-        card.fillCard();
-        FillForm month = new FillForm();
-        month.fillMonth();
-        FillForm date = new FillForm();
-        date.fillDate();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillIncorrectCard ();
+
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
         $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
 
     }
 
-    @Test
-    public void shouldNotSubmitRequestToBuyInCreditWrongCard() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
-        FillForm card = new FillForm();
-        card.fillWrongCard();
-        FillForm month = new FillForm();
-        month.fillMonth();
-        FillForm date = new FillForm();
-        date.fillDate();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
-        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
-    }
+
 
     @Test
     public void shouldNotSubmitRequestToBuyInCreditNoFields() {
@@ -224,124 +144,50 @@ public class TripPurchaseTest {
         PurchaseType d = new PurchaseType();
         d.creditBuy();
         FillForm card = new FillForm();
-        card.fillCard();
-        FillForm date = new FillForm();
-        date.fillWrongDate();
-        FillForm month = new FillForm();
-        month.fillWrongMonth();
-        FillForm name = new FillForm();
-        name.fillName();
-        FillForm cvc = new FillForm();
-        cvc.fillCVC();
-        FillForm button = new FillForm();
-        button.continueButton();
+        card.fillIncorrectData();
+
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
         form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
 
     }
 
 
-//    private String database = "postgresql";
-//
-//    ru.netology.travel.SqlGetters sqlGetters = new ru.netology.travel.SqlGetters();
-//
-//
-//    @Test
-//    void successfulDebitBuy() {
-//        var order = new ru.netology.travel.SqlGetters();
-//        PurchaseType e = new PurchaseType();
-//        e.buy();
-//        FillForm card = new FillForm();
-//        card.fillCard();
-//
-//        FillForm month = new FillForm();
-//        month.fillMonth();
-//
-//        FillForm date = new FillForm();
-//        date.fillDate();
-//
-//        FillForm name = new FillForm();
-//        name.fillName();
-//
-//        FillForm cvc = new FillForm();
-//        cvc.fillCVC();
-//        FillForm button = new FillForm();
-//        button.continueButton();
-//        order.verifySuccess();
-//        assertEquals("APPROVED", sqlGetters.getStatus(database));
-//    }
-//
-//    @Test
-//    void declinedDebitBuy() {
-//        var order = new FillForm();
-//        PurchaseType e = new PurchaseType();
-//        e.buy();
-//        FillForm card = new FillForm();
-//        card.fillWrongCard();
-//
-//        FillForm month = new FillForm();
-//        month.fillMonth();
-//
-//        FillForm date = new FillForm();
-//        date.fillDate();
-//
-//        FillForm name = new FillForm();
-//        name.fillName();
-//
-//        FillForm cvc = new FillForm();
-//        cvc.fillCVC();
-//        FillForm button = new FillForm();
-//        button.continueButton();
-//        order.verifySuccess();
-//        assertEquals("DECLINED", sqlGetters.getStatus(database));
-//    }
-//
-//    @Test
-//    void successfulCreditBuy() {
-//        var order = new FillForm();
-//        PurchaseType e = new PurchaseType();
-//        e.creditBuy();
-//        FillForm card = new FillForm();
-//        card.fillCard();
-//
-//        FillForm month = new FillForm();
-//        month.fillMonth();
-//
-//        FillForm date = new FillForm();
-//        date.fillDate();
-//
-//        FillForm name = new FillForm();
-//        name.fillName();
-//
-//        FillForm cvc = new FillForm();
-//        cvc.fillCVC();
-//        FillForm button = new FillForm();
-//        button.continueButton();
-//        order.verifySuccess();
-//        assertEquals("APPROVED", sqlGetters.getStatus(database));
-//    }
-//
-//    @Test
-//    void declinedCreditBuy() {
-//        var order = new FillForm();
-//        PurchaseType e = new PurchaseType();
-//        e.creditBuy();
-//        FillForm card = new FillForm();
-//        card.fillWrongCard();
-//
-//        FillForm month = new FillForm();
-//        month.fillMonth();
-//
-//        FillForm date = new FillForm();
-//        date.fillDate();
-//
-//        FillForm name = new FillForm();
-//        name.fillName();
-//
-//        FillForm cvc = new FillForm();
-//        cvc.fillCVC();
-//        FillForm button = new FillForm();
-//        button.continueButton();
-//        order.verifyError();
-//        assertEquals("DECLINED", sqlGetters.getStatus(database));
+    @Test
+    void declinedDebitBuy() {
+        var order = new FillForm();
+        PurchaseType e = new PurchaseType();
+        e.buy();
+        FillForm card = new FillForm();
+        card.fillIncorrectCard();
+
+
+        order.verifySuccess();
+        assertEquals("DECLINED", sqlGetters.getStatus(database));
     }
+
+    @Test
+    void successfulCreditBuy() {
+        var order = new FillForm();
+        PurchaseType e = new PurchaseType();
+        e.creditBuy();
+        FillForm card = new FillForm();
+        card.fillCorrectForm();
+
+
+        order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
+    }
+
+    @Test
+    void declinedCreditBuy() {
+        var order = new FillForm();
+        PurchaseType e = new PurchaseType();
+        e.creditBuy();
+        FillForm card = new FillForm();
+        card.fillIncorrectCard();
+
+
+        order.verifyError();
+        assertEquals("DECLINED", sqlGetters.getStatus(database));
+    }
+}
