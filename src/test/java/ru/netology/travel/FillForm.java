@@ -16,43 +16,37 @@ import static com.codeborne.selenide.Selenide.*;
 public class FillForm {
 
 
-    public void fillName() {
+    public void fillCorrectForm () {
         $$("[class=input__control]").get(3).setValue("Anna");
-    }
-
-    public void fillWrongCard() {
-        $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4442");
-    }
-
-    public void fillCard() {
-        $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4441");
-    }
-
-
-    public void fillDate() {
         $("[class=input__box] [placeholder='22']").setValue("23");
-    }
-
-    public void fillMonth() {
+        $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4441");
         $("[class=input__box] [placeholder='08']").setValue("10");
-    }
-
-    public void fillCVC() {
         $("[class=input__box] [placeholder='999']").setValue("123");
-    }
-
-    public void fillWrongDate() {
-        $("[class=input__box] [placeholder='08']").setValue("90");
-    }
-
-    public void fillWrongMonth() {
-        $("[class=input__box] [placeholder='22']").setValue("10");
-    }
-
-    public void continueButton() {
         $(byText("Продолжить")).click();
     }
 
+    public void fillIncorrectCard () {
+        $$("[class=input__control]").get(3).setValue("Anna");
+        $("[class=input__box] [placeholder='22']").setValue("23");
+        $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4442");
+        $("[class=input__box] [placeholder='08']").setValue("10");
+        $("[class=input__box] [placeholder='999']").setValue("123");
+        $(byText("Продолжить")).click();
+    }
+
+    public void fillIncorrectData () {
+        $$("[class=input__control]").get(3).setValue("Anna");
+        $("[class=input__box] [placeholder='22']").setValue("10");
+        $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4441");
+        $("[class=input__box] [placeholder='08']").setValue("90");
+        $("[class=input__box] [placeholder='999']").setValue("123");
+        $(byText("Продолжить")).click();
+    }
+
+
+    public void continueButton(){
+        $(byText("Продолжить")).click();
+    }
     public void verifySuccess() {
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
         $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
@@ -64,4 +58,5 @@ public class FillForm {
 
 
     }
-}
+
+    }
