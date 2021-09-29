@@ -105,7 +105,19 @@ public class TripPurchaseTest {
 
     }
 
+ @Test
+    public void shouldSubmitRequestToBuyInCredit() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType d = new PurchaseType();
+        d.buy();
 
+        FillForm card = new FillForm();
+        card.fillCorrectForm ();
+
+        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
+        $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
+    }
+    
     @Test
     public void shouldSubmitRequestToBuyInCredit() {
 
