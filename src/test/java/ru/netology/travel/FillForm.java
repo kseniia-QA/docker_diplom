@@ -34,7 +34,7 @@ public class FillForm {
         $(byText("Продолжить")).click();
     }
 
-    public void fillIncorrectData () {
+    public void fillIncorrectData(month, year) () {
         $$("[class=input__control]").get(3).setValue("Anna");
         $("[class=input__box] [placeholder='22']").setValue("10");
         $("[class=input__box] [placeholder='0000 0000 0000 0000']").setValue("4444 4444 4444 4441");
