@@ -58,7 +58,7 @@ public class TripPurchaseTest {
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
         FillForm card = new FillForm();
-        card.fillIncorrectData ();
+        card.fillIncorrectDataMonthAndYear ();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
         form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
 
@@ -132,8 +132,7 @@ public class TripPurchaseTest {
         PurchaseType credit = new PurchaseType();
         credit.creditBuy();
         FillForm card = new FillForm();
-        card.fillIncorrectData();
-
+        card.fillIncorrectDataMonthAndYear();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
         form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
 
