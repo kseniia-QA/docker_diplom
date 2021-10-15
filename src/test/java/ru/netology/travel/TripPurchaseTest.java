@@ -54,7 +54,7 @@ public class TripPurchaseTest {
     }
 
     @Test
-    public void shouldNotSubmitRequestToBuyErrors() {
+    public void shouldNotSubmitRequestToBuyErrorsWithYearAndMonth() {
         PurchaseType noCredit = new PurchaseType();
         noCredit.buy();
         FillForm card = new FillForm();
@@ -132,7 +132,7 @@ public class TripPurchaseTest {
     }
 
     @Test
-    public void shouldNotSubmitRequestToBuyInCreditErrors() {
+    public void shouldNotSubmitRequestToBuyInCreditErrorsWithYearAndMonth() {
         PurchaseType credit = new PurchaseType();
         credit.creditBuy();
         FillForm card = new FillForm();
