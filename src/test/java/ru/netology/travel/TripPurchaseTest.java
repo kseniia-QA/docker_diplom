@@ -29,6 +29,116 @@ public class TripPurchaseTest {
     public void setUp() {
         open("http://localhost:8080");
     }
+@Test
+    public void shouldSubmitRequestToBuy() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType e = new PurchaseType();
+        e.buy();
+
+        FillForm card = new FillForm();
+        card.fillCorrectForm ();
+
+        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
+        $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
+
+    }
+
+    @Test
+    public void shouldNotSubmitRequestToBuyWrongCardNumber() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType e = new PurchaseType();
+        e.buy();
+        FillForm card = new FillForm();
+        card.fillIncorrectCard ();
+        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
+    }
+
+    @Test
+    public void shouldNotSubmitRequestToBuyErrorsYearAndMonth() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType e = new PurchaseType();
+        e.buy();
+        FillForm card = new FillForm();
+        card.fillIncorrectData ();
+        form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
+        form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
+
+    }
+
+
+    @Test
+    public void shouldNotSubmitIncorrectData() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType e = new PurchaseType();
+        e.buy();
+        FillForm card = new FillForm();
+        card.fillIncorrectData();
+        $("[class=notification__title]").shouldNotBe(visible);
+
+    }
+
+
+    @Test
+    public void shouldNotSubmitRequestToBuyNoFields() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType e = new PurchaseType();
+        e.buy();
+        FillForm button = new FillForm();
+        button.continueButton();
+        form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(1).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(2).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(3).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(4).shouldHave(text("Поле обязательно для заполнения"));
+        $("[class=notification__title]").shouldNotBe(visible);
+
+    }
+
+
+    @Test
+    public void shouldSubmitRequestToBuyInCredit() {
+
+        SelenideElement form = $("[method=post]");
+        PurchaseType d = new PurchaseType();
+        d.creditBuy();
+        FillForm card = new FillForm();
+        card.fillIncorrectCard ();
+
+        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
+        $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
+
+    }
+
+
+
+    @Test
+    public void shouldNotSubmitRequestToBuyInCreditNoFields() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType d = new PurchaseType();
+        d.creditBuy();
+        FillForm button = new FillForm();
+        button.continueButton();
+        form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(1).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(2).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(3).shouldHave(text("Поле обязательно для заполнения"));
+        form.$$("[class=input__sub]").get(4).shouldHave(text("Поле обязательно для заполнения"));
+        $("[class=notification__title]").shouldNotBe(visible);
+
+    }
+
+    @Test
+    public void shouldNotSubmitRequestToBuyInCreditErrorsYearAndMonth() {
+        SelenideElement form = $("[method=post]");
+        PurchaseType d = new PurchaseType();
+        d.creditBuy();
+        FillForm card = new FillForm();
+        card.fillIncorrectData();
+
+        form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
+        form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
+
+    }
 
 
     @Test
