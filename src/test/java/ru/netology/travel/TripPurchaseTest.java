@@ -106,7 +106,7 @@ public class TripPurchaseTest {
     @Test
     public void shouldNotSubmitRequestToBuyInCredit() {
         PurchaseType credit = new PurchaseType();
-        credit.creditBuy();
+        credit.creditBuy(); 
         FillForm card = new FillForm();
         card.fillIncorrectCard ();
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
