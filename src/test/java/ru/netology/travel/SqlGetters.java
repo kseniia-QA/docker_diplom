@@ -37,39 +37,19 @@ public final class SqlGetters {
         return dataStmt.getString("payment_id");
     }
 
-    @SneakyThrows
-    public String getStatus(String base) {
-        Connection conn = getConnection(base);
-        ResultSet dataStmt = null;
-        if (!isCredit) {
-            dataStmt = conn.createStatement().executeQuery("SELECT * FROM payment_entity ORDER BY created DESC");
-        } else {
-            dataStmt = conn.createStatement().executeQuery("SELECT * FROM credit_request_entity ORDER BY created DESC");
-        }
-        String status = null;
-        boolean flag = false;
-        try (var rs = dataStmt) {
-            while (rs.next()) {
-                status = rs.getString("status");
-                String transactionId = null;
-                if (!isCredit) {
-                    transactionId = rs.getString("transaction_id");
-                } else {
-                    transactionId = rs.getString("bank_id");
-                }
-                if (transactionId.equalsIgnoreCase(getLastPaymentId(base))) {
-                    break;
-                } else {
-                    flag = true;
-                }
-            }
-            if (flag) {
-                status = null;
-                System.out.println("Не найдено такой транзакции");
-            }
+    public static String getStatus() {
+        String status = "";
+        val statusSQL = "SELECT status FROM credit_request_entity;";
+        val runner = new QueryRunner();
+
+        try (
+                val conn = DriverManager.getConnection(url, user, password);
+        ) {
+            status = runner.query(conn, statusSQL, new ScalarHandler<>());
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
         return status;
     }
-
 
 }
