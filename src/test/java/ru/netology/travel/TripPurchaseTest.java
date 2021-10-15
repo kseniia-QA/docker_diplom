@@ -1,19 +1,10 @@
 package ru.netology.travel;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import org.junit.jupiter.api.AfterAll;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TripPurchaseTest {
@@ -42,9 +33,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldSubmitRequestToBuy() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+         noCredit.buy();
 
         FillForm card = new FillForm();
         card.fillCorrectForm ();
@@ -56,9 +46,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyWrongCardNumber() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+         noCredit.buy();
         FillForm card = new FillForm();
         card.fillIncorrectCard ();
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
@@ -66,9 +55,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyErrors() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.buy();
         FillForm card = new FillForm();
         card.fillIncorrectData ();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
@@ -79,9 +67,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitIncorrectData() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.buy();
         FillForm card = new FillForm();
         card.fillIncorrectData();
         $("[class=notification__title]").shouldNotBe(visible);
@@ -91,9 +78,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyNoFields() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.buy();
         FillForm button = new FillForm();
         button.continueButton();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
@@ -107,9 +93,8 @@ public class TripPurchaseTest {
 
  @Test
     public void shouldSubmitRequestToBuyInCredit() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.buy();
+        PurchaseType credit = new PurchaseType();
+        credit.buy();
 
         FillForm card = new FillForm();
         card.fillCorrectForm ();
@@ -119,14 +104,11 @@ public class TripPurchaseTest {
     }
     
     @Test
-    public void shouldSubmitRequestToBuyInCredit() {
-
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+    public void shouldNotSubmitRequestToBuyInCredit() {
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm card = new FillForm();
         card.fillIncorrectCard ();
-
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
         $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
 
@@ -136,9 +118,8 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyInCreditNoFields() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm button = new FillForm();
         button.continueButton();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
@@ -152,12 +133,10 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyInCreditErrors() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm card = new FillForm();
         card.fillIncorrectData();
-
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
         form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
 
@@ -167,8 +146,8 @@ public class TripPurchaseTest {
     @Test
     void declinedDebitBuy() {
         var order = new FillForm();
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.buy();
         FillForm card = new FillForm();
         card.fillIncorrectCard();
 
@@ -180,8 +159,8 @@ public class TripPurchaseTest {
     @Test
     void successfulCreditBuy() {
         var order = new FillForm();
-        PurchaseType e = new PurchaseType();
-        e.creditBuy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.creditBuy();
         FillForm card = new FillForm();
         card.fillCorrectForm();
 
@@ -193,8 +172,8 @@ public class TripPurchaseTest {
     @Test
     void declinedCreditBuy() {
         var order = new FillForm();
-        PurchaseType e = new PurchaseType();
-        e.creditBuy();
+        PurchaseType noCredit = new PurchaseType();
+        noCredit.creditBuy();
         FillForm card = new FillForm();
         card.fillIncorrectCard();
 
