@@ -7,8 +7,8 @@
   
   
 
-<<<<<<< HEAD:src/test/java/documents/Report.md
+
 ![img.png](../../../../img.png)
-=======
+
 ![img.png](img.png)
->>>>>>> 4937eec4dc6fbc436b9fbedd4a439db227d561ae:Report.md
+
