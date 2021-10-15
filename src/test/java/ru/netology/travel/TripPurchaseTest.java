@@ -31,9 +31,8 @@ public class TripPurchaseTest {
     }
 @Test
     public void shouldSubmitRequestToBuy() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+        PurchaseType notCredit = new PurchaseType();
+        notCredit .buy();
 
         FillForm card = new FillForm();
         card.fillCorrectForm ();
@@ -45,9 +44,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyWrongCardNumber() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+    
+        PurchaseType notCredit  = new PurchaseType();
+        notCredit .buy();
         FillForm card = new FillForm();
         card.fillIncorrectCard ();
         $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
@@ -55,9 +54,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyErrorsYearAndMonth() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+  
+        PurchaseType notCredit  = new PurchaseType();
+        notCredit .buy();
         FillForm card = new FillForm();
         card.fillIncorrectData ();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
@@ -68,9 +67,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitIncorrectData() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+   
+        PurchaseType notCredit  = new PurchaseType();
+        notCredit .buy();
         FillForm card = new FillForm();
         card.fillIncorrectData();
         $("[class=notification__title]").shouldNotBe(visible);
@@ -80,9 +79,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyNoFields() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType e = new PurchaseType();
-        e.buy();
+    
+        PurchaseType notCredit  = new PurchaseType();
+        notCredit .buy();
         FillForm button = new FillForm();
         button.continueButton();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
@@ -98,9 +97,9 @@ public class TripPurchaseTest {
     @Test
     public void shouldSubmitRequestToBuyInCredit() {
 
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+      
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm card = new FillForm();
         card.fillIncorrectCard ();
 
@@ -113,9 +112,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyInCreditNoFields() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+      
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm button = new FillForm();
         button.continueButton();
         form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
@@ -129,9 +128,9 @@ public class TripPurchaseTest {
 
     @Test
     public void shouldNotSubmitRequestToBuyInCreditErrorsYearAndMonth() {
-        SelenideElement form = $("[method=post]");
-        PurchaseType d = new PurchaseType();
-        d.creditBuy();
+  
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
         FillForm card = new FillForm();
         card.fillIncorrectData();
 
