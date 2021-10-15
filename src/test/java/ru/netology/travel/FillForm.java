@@ -39,34 +39,34 @@ public class FillForm {
 
      public void shouldGiveFieldErrorWhenIncorrectCardExpirationDate() {
         fieldError.shouldHave(Condition.text("Неверно указан срок действия карты"))
-        .shouldBe(visible, Duration.ofMillis(15000));
+     
     }
     
  public void shouldGiveFieldErrorWhenRequiredField() {
         fieldError.shouldHave(Condition.text("Поле обязательно для заполнения"))
-         .shouldBe(visible, Duration.ofMillis(15000));
+     
     }
 
     public void shouldGiveFieldErrorForCVVWhenRequiredField() {
         fieldErrorForCVV.shouldHave(Condition.text("Поле обязательно для заполнения"))
-        .shouldBe(visible, Duration.ofMillis(15000));
+       
     }
 
     public void shouldGiveFieldErrorWhenValueCannotBeLong() {
         fieldError.shouldHave(Condition.text("Значение поля не может быть длиннее 70 символов"))
-       .shouldBe(visible, Duration.ofMillis(15000));
+      
         
     }
     
     public void shouldGiveFieldErrorWhenNameIsNotInLatin() {
         fieldError.shouldHave(Condition.text("Значение поля может содержать только латинские буквы и дефис"))
-                .shouldBe(visible, Duration.ofMillis(15000));
+             
     
     
     }
  public void shouldGiveFieldErrorWhenIncorrectCVV() {
         fieldError.shouldHave(Condition.text("Неверно указан CVC/CVV"))
-                .shouldBe(visible, Duration.ofMillis(15000));
+            
     }
 
     public void shouldGiveFieldError() {
