@@ -37,50 +37,6 @@ public class FillForm {
         continueButton.click();
     }
 
-     public void shouldGiveFieldErrorWhenIncorrectCardExpirationDate() {
-        fieldError.shouldHave(Condition.text("Неверно указан срок действия карты"))
-     
-    }
-    
- public void shouldGiveFieldErrorWhenRequiredField() {
-        fieldError.shouldHave(Condition.text("Поле обязательно для заполнения"))
-     
-    }
-
-    public void shouldGiveFieldErrorForCVVWhenRequiredField() {
-        fieldErrorForCVV.shouldHave(Condition.text("Поле обязательно для заполнения"))
-       
-    }
-
-    public void shouldGiveFieldErrorWhenValueCannotBeLong() {
-        fieldError.shouldHave(Condition.text("Значение поля не может быть длиннее 70 символов"))
-      
-        
-    }
-    
-    public void shouldGiveFieldErrorWhenNameIsNotInLatin() {
-        fieldError.shouldHave(Condition.text("Значение поля может содержать только латинские буквы и дефис"))
-             
-    
-    
-    }
- public void shouldGiveFieldErrorWhenIncorrectCVV() {
-        fieldError.shouldHave(Condition.text("Неверно указан CVC/CVV"))
-            
-    }
-
-    public void shouldGiveFieldError() {
-        fieldError.shouldBe(visible, Duration.ofMillis(15000));
-    }
-
-    public void shouldNotGiveFieldError() {
-        fieldError.shouldNotBe(visible, Duration.ofMillis(15000));
-    }
-
-    public void shouldGiveErrorMessage() {
-        errorMessage.shouldBe(visible, Duration.ofMillis(15000));
-    }
-
     public void continueButton(){
         $(byText("Продолжить")).click();
     }
