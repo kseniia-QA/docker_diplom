@@ -33,13 +33,10 @@ public class TripPurchaseTest {
     public void shouldSubmitRequestToBuy() {
         PurchaseType notCredit = new PurchaseType();
         notCredit .buy();
-
-        FillForm card = new FillForm();
-        card.fillCorrectForm ();
-
-        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
-        $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
-
+        order.autoDebitTour(1);
+        order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
+  
     }
 
     @Test
@@ -47,22 +44,22 @@ public class TripPurchaseTest {
     
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
-        FillForm card = new FillForm();
-        card.fillIncorrectCard ();
-        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Ошибка"));
+        order.autoDebitTour(2);
+        order.verifyError();
+        assertEquals("DECLINED", sqlGetters.getStatus(database));
     }
+    
 
     @Test
     public void shouldNotSubmitRequestToBuyErrorsYearAndMonth() {
   
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
-        FillForm card = new FillForm();
-        card.fillIncorrectDataMonthAndYear ();
-        form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
-        form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
-
+       order.manualDebitTour("abcdпрог!@#$)(*&", "01", "23", "HALVA CARD", "457");
+        order.validateErrors(true, false, false, false, false);
     }
+
+    
 
 
     @Test
@@ -70,11 +67,15 @@ public class TripPurchaseTest {
    
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
-        FillForm card = new FillForm();
-        card.fillIncorrectData();
-        $("[class=notification__title]").shouldNotBe(visible);
-
+        order.manualDebitTour("4444444444444441", "", "23", "HALVA CARD", "457");
+        order.validateErrors(false, true, false, false, false);
+        order.manualDebitTour("", "01", "", "", "");
+        order.validateErrors(false, false, false, false, false);
+        order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
     }
+
+    
 
 
     @Test
@@ -82,14 +83,9 @@ public class TripPurchaseTest {
     
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
-        FillForm button = new FillForm();
-        button.continueButton();
-        form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(1).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(2).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(3).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(4).shouldHave(text("Поле обязательно для заполнения"));
-        $("[class=notification__title]").shouldNotBe(visible);
+        order.manualDebitTour("", "", "", "", "");
+        order.validateErrors(true, true, true, true, true);
+    
 
     }
 
@@ -100,81 +96,94 @@ public class TripPurchaseTest {
       
         PurchaseType credit = new PurchaseType();
         credit.creditBuy();
-        FillForm card = new FillForm();
-        card.fillIncorrectCard ();
-
-        $("[class=notification__title]").shouldBe(Condition.visible, Duration.ofSeconds(15)).shouldHave(exactText("Успешно"));
-        $("[class=notification__content]").shouldBe(Condition.visible).shouldHave(exactText("Операция одобрена Банком."));
-
-    }
-
-
-
-    @Test
-    public void shouldNotSubmitRequestToBuyInCreditNoFields() {
-      
-        PurchaseType credit = new PurchaseType();
-        credit.creditBuy();
-        FillForm button = new FillForm();
-        button.continueButton();
-        form.$$("[class=input__sub]").get(0).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(1).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(2).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(3).shouldHave(text("Поле обязательно для заполнения"));
-        form.$$("[class=input__sub]").get(4).shouldHave(text("Поле обязательно для заполнения"));
-        $("[class=notification__title]").shouldNotBe(visible);
-
-    }
-
-    @Test
-    public void shouldNotSubmitRequestToBuyInCreditErrorsYearAndMonth() {
-  
-        PurchaseType credit = new PurchaseType();
-        credit.creditBuy();
-        FillForm card = new FillForm();
-        card.fillIncorrectDataMonthAndYear();
-        form.$$("[class=input__sub]").get(0).shouldHave(text("Неверно указан срок действия карты"));
-        form.$$("[class=input__sub]").get(1).shouldHave(text("Истёк срок действия карты"));
-
-    }
-
-
-    @Test
-    void declinedDebitBuy() {
-        var order = new FillForm();
-        PurchaseType noCredit = new PurchaseType();
-        noCredit.buy();
-        FillForm card = new FillForm();
-        card.fillIncorrectCard();
-
-
+        order.autoCreditTour(1);
         order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
+
+    }
+    
+
+@Test
+    public void shouldNotSubmitRequestToBuyInCreditWrongCardNumber() {
+    
+        PurchaseType notCredit  = new PurchaseType();
+        notCredit .buy();
+        order.autoCreditTour(2);
+        order.verifyError();
         assertEquals("DECLINED", sqlGetters.getStatus(database));
     }
 
+   
+       
+        
+        @Test
+    void wrongSymbolsMonth() {
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "g%", "23", "HALVA CARD", "457");
+        order.validateErrors(false, true, false, false, false);
+    }
+
+    
+    
     @Test
-    void successfulCreditBuy() {
-        var order = new FillForm();
-        PurchaseType noCredit = new PurchaseType();
-        noCredit.creditBuy();
-        FillForm card = new FillForm();
-        card.fillCorrectForm();
+    void zeroMonth() {
+        PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "00", "23", "HALVA CARD", "457");
+        order.validateErrors(false, true, false, false, false);
+    }
 
+   
 
+ @Test
+    void validateYear() {
+     PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "01", "", "HALVA CARD", "457");
+        order.validateErrors(false, false, true, false, false);
+        order.manualDebitTour("", "", "22", "", "");
+        order.validateErrors(false, false, false, false, false);
+        order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
+    }
+   
+ @Test
+    void wrongSymbolsYear() {
+         PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "01", "h@", "HALVA CARD", "457");
+        order.validateErrors(false, false, true, false, false);
+    }
+
+    @Test
+    void validateOwner() {
+       PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "01", "23", "", "457");
+        order.validateErrors(false, false, false, true, false);
+        order.manualDebitTour("", "", "", "HALVA CARD", "");
+        order.validateErrors(false, false, false, false, false);
         order.verifySuccess();
         assertEquals("APPROVED", sqlGetters.getStatus(database));
     }
 
     @Test
-    void declinedCreditBuy() {
-        var order = new FillForm();
-        PurchaseType noCredit = new PurchaseType();
-        noCredit.creditBuy();
-        FillForm card = new FillForm();
-        card.fillIncorrectCard();
-
-
-        order.verifyError();
-        assertEquals("DECLINED", sqlGetters.getStatus(database));
+    void wrongSymbolsOwner() {
+       PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "01", "23", "213$@#", "457");
+        order.validateErrors(false, false, false, true, false);
     }
-}
+
+    @Test
+    void validateCode() {
+       PurchaseType credit = new PurchaseType();
+        credit.creditBuy();
+        order.manualDebitTour("4444444444444441", "01", "23", "HALVA CARD", "");
+        order.validateErrors(false, false, false, false, true);
+        order.manualDebitTour("", "", "", "", "457");
+        order.validateErrors(false, false, false, false, false);
+        order.verifySuccess();
+        assertEquals("APPROVED", sqlGetters.getStatus(database));
+    }
