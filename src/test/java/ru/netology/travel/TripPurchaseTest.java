@@ -55,7 +55,7 @@ public class TripPurchaseTest {
   
         PurchaseType notCredit  = new PurchaseType();
         notCredit .buy();
-       order.manualDebitTour("abcdпрог!@#$)(*&", "01", "23", "HALVA CARD", "457");
+        order.manualDebitTour("abcdпрог!@#$)(*&", "01", "23", "HALVA CARD", "457");
         order.validateErrors(true, false, false, false, false);
     }
 
