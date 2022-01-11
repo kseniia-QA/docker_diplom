@@ -1,0 +1,217 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "name" : "packages",
+  "children" : [ {
+    "name" : "ru.netology.travel.AppTest",
+    "children" : [ {
+      "name" : "successfulCreditBuy",
+      "uid" : "999047427e9def92",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "broken",
+      "time" : {
+        "start" : 1641892819591,
+        "stop" : 1641892840639,
+        "duration" : 21048
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "successfulDebitBuy",
+      "uid" : "f09a24401198ca83",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "broken",
+      "time" : {
+        "start" : 1641892840882,
+        "stop" : 1641892846578,
+        "duration" : 5696
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateCardNumber",
+      "uid" : "5740d23750461abf",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892846600,
+        "stop" : 1641892852701,
+        "duration" : 6101
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateCodeWithBugs",
+      "uid" : "692603b5ef8284ab",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892852737,
+        "stop" : 1641892859107,
+        "duration" : 6370
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "wrongSymbolsCardNumber",
+      "uid" : "7a77653ece5d569f",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641892859118,
+        "stop" : 1641892860357,
+        "duration" : 1239
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "emptyForm",
+      "uid" : "1ee28d03de1984f8",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641892860371,
+        "stop" : 1641892861108,
+        "duration" : 737
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "wrongSymbolsYear",
+      "uid" : "54a119146ca8c386",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641892861114,
+        "stop" : 1641892862235,
+        "duration" : 1121
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "wrongSymbolsMonth",
+      "uid" : "fb63c54fb860affd",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "passed",
+      "time" : {
+        "start" : 1641892862240,
+        "stop" : 1641892863490,
+        "duration" : 1250
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "wrongSymbolsOwner",
+      "uid" : "184c55a0b2ce0f64",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892863494,
+        "stop" : 1641892868859,
+        "duration" : 5365
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateMonth",
+      "uid" : "ee632e8e049d3fc2",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "broken",
+      "time" : {
+        "start" : 1641892868867,
+        "stop" : 1641892880263,
+        "duration" : 11396
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateOwner",
+      "uid" : "cabb598747b285dd",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892880270,
+        "stop" : 1641892886475,
+        "duration" : 6205
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "zeroMonth",
+      "uid" : "1462beaa3783f76c",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892886482,
+        "stop" : 1641892891763,
+        "duration" : 5281
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "declinedDebitBuy",
+      "uid" : "5d667639cf55a672",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892891772,
+        "stop" : 1641892908356,
+        "duration" : 16584
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateCode",
+      "uid" : "df6d2d07a5aa4364",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892908361,
+        "stop" : 1641892913618,
+        "duration" : 5257
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "validateYear",
+      "uid" : "20baaacae3d93e34",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "broken",
+      "time" : {
+        "start" : 1641892913624,
+        "stop" : 1641892924433,
+        "duration" : 10809
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    }, {
+      "name" : "declinedCreditBuy",
+      "uid" : "61d5d13ac45d91e5",
+      "parentUid" : "21a6c2ca0355fa2c4d1475e79f680db8",
+      "status" : "failed",
+      "time" : {
+        "start" : 1641892924449,
+        "stop" : 1641892940737,
+        "duration" : 16288
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "ru.netology.travel.AppTest"
+  } ]
+}

@@ -1,16 +1,10 @@
 package ru.netology.travel;
 
-import com.codeborne.selenide.Condition;
 import lombok.SneakyThrows;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
 
 public final class SqlGetters {
     private static boolean isCredit;
@@ -21,14 +15,13 @@ public final class SqlGetters {
 
     @SneakyThrows
     private Connection getConnection(String base) {
-        if (base.equalsIgnoreCase("mysql")) {
-            return DriverManager.getConnection("jdbc:mysql://217.25.88.206:3306/mysql", "user", "pass");
+        if (base.equalsIgnoreCase("postgresql")) {
+            return DriverManager.getConnection("jdbc:postgresql://localhost:5432/rand", "app", "pass");
         } else {
-            return DriverManager.getConnection("jdbc:mysql://217.25.88.206:3306/mysql", "user", "pass");
+            return DriverManager.getConnection("jdbc:mysql://localhost:3306/app", "app", "pass");
         }
-
-
     }
+
     @SneakyThrows
     private String getLastPaymentId(String base) {
         Connection conn = getConnection(base);
@@ -37,19 +30,37 @@ public final class SqlGetters {
         return dataStmt.getString("payment_id");
     }
 
-    public static String getStatus() {
-        String status = "";
-        val statusSQL = "SELECT status FROM credit_request_entity;";
-        val runner = new QueryRunner();
-
-        try (
-                val conn = DriverManager.getConnection(url, user, password);
-        ) {
-            status = runner.query(conn, statusSQL, new ScalarHandler<>());
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+    @SneakyThrows
+    public String getStatus(String base) {
+        Connection conn = getConnection(base);
+        ResultSet dataStmt = null;
+        if (!isCredit) {
+            dataStmt = conn.createStatement().executeQuery("SELECT * FROM payment_entity ORDER BY created DESC");
+        } else {
+            dataStmt = conn.createStatement().executeQuery("SELECT * FROM credit_request_entity ORDER BY created DESC");
+        }
+        String status = null;
+        boolean flag = false;
+        try (var rs = dataStmt) {
+            while (rs.next()) {
+                status = rs.getString("status");
+                String transactionId = null;
+                if (!isCredit) {
+                    transactionId = rs.getString("transaction_id");
+                } else {
+                    transactionId = rs.getString("bank_id");
+                }
+                if (transactionId.equalsIgnoreCase(getLastPaymentId(base))) {
+                    break;
+                } else {
+                    flag = true;
+                }
+            }
+            if (flag) {
+                status = null;
+                System.out.println("Не найдено такой транзакции");
+            }
         }
         return status;
     }
-
 }

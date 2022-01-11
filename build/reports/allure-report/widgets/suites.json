@@ -1,0 +1,15 @@
+{
+  "total" : 1,
+  "items" : [ {
+    "uid" : "375b62ce69a9167287b3ea2d8e80ff74",
+    "name" : "ru.netology.travel.AppTest",
+    "statistic" : {
+      "failed" : 8,
+      "broken" : 4,
+      "skipped" : 0,
+      "passed" : 4,
+      "unknown" : 0,
+      "total" : 16
+    }
+  } ]
+}

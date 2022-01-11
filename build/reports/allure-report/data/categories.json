@@ -1,0 +1,205 @@
+{
+  "uid" : "4b4757e66a1912dae1a509f688f20b0f",
+  "name" : "categories",
+  "children" : [ {
+    "name" : "Test defects",
+    "children" : [ {
+      "name" : "FATAL: password authentication failed for user \"app\"",
+      "children" : [ {
+        "name" : "successfulCreditBuy()",
+        "uid" : "999047427e9def92",
+        "parentUid" : "60f66711002f9a73291b820fcde46bc1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1641892819591,
+          "stop" : 1641892840639,
+          "duration" : 21048
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "successfulDebitBuy()",
+        "uid" : "f09a24401198ca83",
+        "parentUid" : "60f66711002f9a73291b820fcde46bc1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1641892840882,
+          "stop" : 1641892846578,
+          "duration" : 5696
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "validateMonth()",
+        "uid" : "ee632e8e049d3fc2",
+        "parentUid" : "60f66711002f9a73291b820fcde46bc1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1641892868867,
+          "stop" : 1641892880263,
+          "duration" : 11396
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      }, {
+        "name" : "validateYear()",
+        "uid" : "20baaacae3d93e34",
+        "parentUid" : "60f66711002f9a73291b820fcde46bc1",
+        "status" : "broken",
+        "time" : {
+          "start" : 1641892913624,
+          "stop" : 1641892924433,
+          "duration" : 10809
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "60f66711002f9a73291b820fcde46bc1"
+    } ],
+    "uid" : "bdbf199525818fae7a8651db9eafe741"
+  }, {
+    "name" : "Product defects",
+    "children" : [ {
+      "name" : "Element should not be visible {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Номер карты')]]}\r\nElement: '<span class=\"input__sub\">Неверный формат</span>'\r\nActual value: visible:true\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892852416.0.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892852416.0.html\r\nTimeout: 4 s.",
+      "children" : [ {
+        "name" : "validateCardNumber()",
+        "uid" : "5740d23750461abf",
+        "parentUid" : "94d14cbba1d8497502ff8b66b3e84d33",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892846600,
+          "stop" : 1641892852701,
+          "duration" : 6101
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "94d14cbba1d8497502ff8b66b3e84d33"
+    }, {
+      "name" : "Element should not be visible {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'CVC/CVV')]]}\r\nElement: '<span class=\"input__sub\">Неверный формат</span>'\r\nActual value: visible:true\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892858914.1.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892858914.1.html\r\nTimeout: 4 s.",
+      "children" : [ {
+        "name" : "validateCodeWithBugs()",
+        "uid" : "692603b5ef8284ab",
+        "parentUid" : "8d5626a4fc8941e03ceb4813d7945e12",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892852737,
+          "stop" : 1641892859107,
+          "duration" : 6370
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "8d5626a4fc8941e03ceb4813d7945e12"
+    }, {
+      "name" : "Element not found {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Владелец')]]}\r\nExpected: visible\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892868706.2.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892868706.2.html\r\nTimeout: 4 s.\r\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Владелец')]]\"}",
+      "children" : [ {
+        "name" : "wrongSymbolsOwner()",
+        "uid" : "184c55a0b2ce0f64",
+        "parentUid" : "f1ae79fb9771f7be8f489e6d53cb9a47",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892863494,
+          "stop" : 1641892868859,
+          "duration" : 5365
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "f1ae79fb9771f7be8f489e6d53cb9a47"
+    }, {
+      "name" : "Element should not be visible {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Владелец')]]}\r\nElement: '<span class=\"input__sub\">Поле обязательно для заполнения</span>'\r\nActual value: visible:true\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892886251.3.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892886251.3.html\r\nTimeout: 4 s.",
+      "children" : [ {
+        "name" : "validateOwner()",
+        "uid" : "cabb598747b285dd",
+        "parentUid" : "4b6bb0ed5863323a036dd491c89a99a4",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892880270,
+          "stop" : 1641892886475,
+          "duration" : 6205
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "4b6bb0ed5863323a036dd491c89a99a4"
+    }, {
+      "name" : "Element not found {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Месяц')]]}\r\nExpected: visible\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892891573.4.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892891573.4.html\r\nTimeout: 4 s.\r\nCaused by: NoSuchElementException: no such element: Unable to locate element: {\"method\":\"xpath\",\"selector\":\"//span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Месяц')]]\"}",
+      "children" : [ {
+        "name" : "zeroMonth()",
+        "uid" : "1462beaa3783f76c",
+        "parentUid" : "87c0db47c409c8a9ee2005b9fa128647",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892886482,
+          "stop" : 1641892891763,
+          "duration" : 5281
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "87c0db47c409c8a9ee2005b9fa128647"
+    }, {
+      "name" : "Element should be visible {[class=notification__title][1]}\r\nElement: '<div class=\"notification__title\" displayed:false></div>'\r\nActual value: visible:false\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892908220.5.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892908220.5.html\r\nTimeout: 15 s.",
+      "children" : [ {
+        "name" : "declinedDebitBuy()",
+        "uid" : "5d667639cf55a672",
+        "parentUid" : "11e413f0385802560407b6619e53f854",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892891772,
+          "stop" : 1641892908356,
+          "duration" : 16584
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "11e413f0385802560407b6619e53f854"
+    }, {
+      "name" : "Element should not be visible {By.xpath: //span[@class='input__sub' and preceding-sibling::span[contains(text(), 'Владелец')]]}\r\nElement: '<span class=\"input__sub\">Поле обязательно для заполнения</span>'\r\nActual value: visible:true\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892913482.6.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892913482.6.html\r\nTimeout: 4 s.",
+      "children" : [ {
+        "name" : "validateCode()",
+        "uid" : "df6d2d07a5aa4364",
+        "parentUid" : "718db43b9335175e8e4f12b3cd2f0d11",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892908361,
+          "stop" : 1641892913618,
+          "duration" : 5257
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "718db43b9335175e8e4f12b3cd2f0d11"
+    }, {
+      "name" : "Element should be visible {[class=notification__title][1]}\r\nElement: '<div class=\"notification__title\" displayed:false></div>'\r\nActual value: visible:false\r\nScreenshot: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892940606.7.png\r\nPage source: file:/C:/DockerDiplom/Diploma/build/reports/tests/1641892940606.7.html\r\nTimeout: 15 s.",
+      "children" : [ {
+        "name" : "declinedCreditBuy()",
+        "uid" : "61d5d13ac45d91e5",
+        "parentUid" : "0ade6bd37d2a8bb1e3f65f996a85e80e",
+        "status" : "failed",
+        "time" : {
+          "start" : 1641892924449,
+          "stop" : 1641892940737,
+          "duration" : 16288
+        },
+        "flaky" : false,
+        "newFailed" : false,
+        "parameters" : [ ]
+      } ],
+      "uid" : "0ade6bd37d2a8bb1e3f65f996a85e80e"
+    } ],
+    "uid" : "8fb3a91ba5aaf9de24cc8a92edc82b5d"
+  } ]
+}
